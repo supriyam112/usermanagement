@@ -1,0 +1,15 @@
+---
+applications:
+- name: userManagement
+  memory: 1024M
+  random-route: true
+  path: target/userManagement-0.0.1-SNAPSHOT.jar
+  instances: 1
+  services:
+  - fortunes-db
+  - fortunes-config-server
+  - fortunes-service-registry
+  env:
+    CF_TARGET: https://api.run.pivotal.io
+    # JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,address=172.20.0.56:8085
+    # JBP_CONFIG_DEBUG: '{enabled: true}'
